@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import _ from "lodash";
 import SearchBar from "./components/SearchBar";
 import VideoDetail from "./components/VideoDetail";
+import PageHeader from "./components/Header";
 import { VideoList, VideoListItem } from "./components/VideoList";
 import API from "./utils/API";
 
@@ -33,30 +34,32 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <Col>
-            <SearchBar searchYouTube={this.throttledSearch} />
-          </Col>
-        </Row>
-        <Row>
-          <Col md="9">
-            <VideoDetail video={this.state.selectedVideo} />
-          </Col>
-          <Col md="3">
-            <VideoList>
-              {this.state.videos.map(video => (
-                <VideoListItem 
-                  video={video} 
-                  key={video.id.videoId || video.id.playlistId} //special key that React uses and it never changes-- we can't use it
-                  selectedVideo={this.state.selectedVideo} 
-                  selectVideo={this.selectVideo}
-                /> 
-              ))}
-            </VideoList>
-          </Col>
-        </Row>
-      </Container>
+        <Container>
+            <PageHeader />
+
+            <Row>
+            <Col>
+                <SearchBar searchYouTube={this.throttledSearch} />
+            </Col>
+            </Row>
+            <Row>
+            <Col md="9">
+                <VideoDetail video={this.state.selectedVideo} />
+            </Col>
+            <Col md="3">
+                <VideoList>
+                {this.state.videos.map(video => (
+                    <VideoListItem 
+                    video={video} 
+                    key={video.id.videoId || video.id.playlistId} //special key that React uses and it never changes-- we can't use it
+                    selectedVideo={this.state.selectedVideo} 
+                    selectVideo={this.selectVideo}
+                    /> 
+                ))}
+                </VideoList>
+            </Col>
+            </Row>
+        </Container>
       
     );
   }

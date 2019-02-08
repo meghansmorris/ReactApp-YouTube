@@ -8,11 +8,11 @@ const ClearBtn = styled.span`
     font-size: 24px;
     position: absolute;
     top: 0;
-    right: 10;
+    right: 5px;
     cursor: pointer;
 
     :hover {
-        color: purple;
+        color: #4fcec6;
     }
 `
 const StyledFormGroup = styled(FormGroup)`

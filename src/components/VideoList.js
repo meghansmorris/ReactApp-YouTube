@@ -10,14 +10,14 @@ const List = styled.ul`
 //don't need a separate css styling sheet for different components
 const Item = styled.li`
     img {
-        border: ${props => props.active ? "3px solid coral" : "1px solid gray"}; 
+        border: ${props => props.active ? "3px solid #4fcec6" : "3px solid #b9b9b9"}; 
         width: 200px;
         margin-bottom: 15px;
         cursor: pointer;
         border-radius: 5px;
 
         :hover {
-            border-color: limegreen;
+            border-color: #1531b7;
         }
     }
 `
@@ -32,7 +32,7 @@ export const VideoList = (props) => {
 //have to wrap an anonymous function around a function that needs a value inside it. If you are just referencing it then you don't need to
 export const VideoListItem = ({ video, selectedVideo, selectVideo }) => {
     return (
-        <Item active={video === selectedVideo} onClick={() => selectVideo(video)}> /
+        <Item active={video === selectedVideo} onClick={() => selectVideo(video)}>
             <img src={video.snippet.thumbnails.medium.url} />
         </Item>
     )
